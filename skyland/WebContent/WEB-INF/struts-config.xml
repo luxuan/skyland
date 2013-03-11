@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+	  	<form-bean name="loginForm" type="actions.user.LoginForm" />
+	  	<form-bean name="loginoutForm" type="org.apache.struts.action.DynaActionForm" />
+	  	<form-bean name="registerForm" type="actions.user.RegisterForm" />
+	  	<form-bean name="updateForm" type="actions.user.UpdateForm" />
+	  	<form-bean name="changePasswordForm" type="actions.user.ChangePasswordForm" />
+	  	<form-bean name="addOrderAddressForm" type="action.transaction.AddOrderAddressForm" />
+	  	<form-bean name="serialForm" type="actions.SerialForm" />
+	  	<form-bean name="adminLoginForm" type="actions.admin.AdminLoginForm" />
+	  	<form-bean name="uploadActionForm" type="actions.admin.UploadActionForm" />
+	  	<form-bean name="adminUpdateForm" type="org.apache.struts.action.DynaActionForm" >
+	  		<form-property name="num" type="java.lang.Integer" />
+	  		<form-property name="adminName" type="java.lang.String" />
+	  		<form-property name="realName" type="java.lang.String" />
+	  		<form-property name="mobil" type="java.lang.String" />
+	  		<form-property name="homePhone" type="java.lang.String" />
+	  		<form-property name="officePhone" type="java.lang.String" />
+	  		<form-property name="email" type="java.lang.String" />
+	  		<form-property name="remark" type="java.lang.String" />
+	  		
+	  		<form-property name="password" type="java.lang.String" />
+	  		<form-property name="newPassword" type="java.lang.String" />
+	  		<form-property name="newPasswordAgain" type="java.lang.String" />
+	  	</form-bean>
+	  	
+	  	<form-bean name="deleteShopForm" type="org.apache.struts.action.DynaActionForm" >
+	  		<form-property name="num" type="java.lang.Integer" />
+	  	</form-bean>
+	  		  	
+	  	<form-bean name="updateViewShopForm" type="org.apache.struts.action.DynaActionForm" >
+	  		<form-property name="num" type="java.lang.Integer" />
+	  	</form-bean>
+	  	
+<!-- begin: news manage form*************-->	  		  		  	
+	  	<form-bean name="updateAdminNewsForm" type="org.apache.struts.action.DynaActionForm" >
+	  		<form-property name="categoryNum" type="java.lang.Integer" />
+	  		<form-property name="title" type="java.lang.String" />
+	  		<form-property name="editorContent" type="java.lang.String" />
+	  	</form-bean>
+
+<!-- end: news manage form*************-->
+	  	
+<!-- begin: goodsCategory manage form -->	  		  		  	
+	  	<form-bean name="updateAdminGoodsCategoryForm" type="org.apache.struts.action.DynaActionForm" >
+	  		<form-property name="name" type="java.lang.String" />
+	  		<form-property name="isHot" type="java.lang.String" />
+	  	</form-bean>
+
+<!-- end: goodsCategory manage form -->	
+
+<!-- begin: goods manage form -->	  		  		  	
+	  	<form-bean name="updateAdminGoodsForm" type="actions.admin.GoodsManageForm" />
+
+<!-- end: goods manage form -->	  
+
+
+<!-- begin: order manage form -->	  		  		  	
+	  	<form-bean name="userOrderForm" type="action.transaction.UserOrderForm" />
+
+<!-- end: order manage form -->	  
+		
+	  	
+	</form-beans>
+	<global-forwards>
+        <forward name = "index" path="/index.jsp" />
+    </global-forwards>
+	<action-mappings>
+ 		
+   		<action path="/login" input="/usercenter.jsp" type="actions.user.LoginAction" 
+	  	 	scope="request" validate="false" name="loginForm">
+	    	<forward name="success" path="/usercenter.jsp"/>
+	    	<forward name="fail" path="/usercenter.jsp" />
+   		</action>
+   		
+   		<action path="/loginout" input="/usercenter.jsp" type="actions.user.LoginoutAction" 
+   			scope="request" validate="false" name="loginoutForm">
+	    	<forward name="success" path="/usercenter.jsp"/>
+	    	<forward name="fail" path="/usercenter.jsp" />
+   		</action>
+ 
+    	<action path="/register-do" input="/register.jsp" type="actions.user.RegisterAction" 
+   			scope="request" validate="true" name="registerForm">
+	    	<forward name="success" path="/usercenter.jsp"/>
+	    	<forward name="fail" path="/register.jsp" />
+   		</action>  
+
+    	<action path="/update-do" input="/usercenter.jsp?property=10" type="actions.user.UpdateAction" 
+   			scope="request" validate="true" name="updateForm">
+   		</action>  
+   		
+     	<action path="/change-password-do" input="/usercenter.jsp?property=9" type="actions.user.ChangePasswordAction" 
+   			scope="request" validate="true" name="changePasswordForm">
+   		</action> 
+   		 
+     	<action path="/add-order-address-do" input="/usercenter.jsp?property=11" type="action.transaction.AddOrderAddressAction" 
+   			scope="request" validate="false" name="addOrderAddressForm">
+   		</action>  
+ 
+      	<action path="/delete-cart" input="/usercenter.jsp?property=11" type="action.transaction.DeleteCartAction" 
+   			scope="request">
+   		</action>  
+  
+  
+     	<action path="/delete-order" input="/usercenter.jsp?property=1" type="action.transaction.DeleteOrderAction" 
+   			scope="request">
+   		</action>  
+  
+      	<action path="/delete-order-address" input="/usercenter.jsp?property=11" type="action.transaction.DeleteOrderAddressAction" 
+   			scope="request">
+   		</action>  
+ 
+   
+      	<action path="/set-default-order-address" input="/usercenter.jsp?property=11" type="action.transaction.SetDefaultOrderAddressAction" 
+   			scope="request">
+   		</action>  
+  
+      	<action path="/user-order-do" input="/usercenter.jsp?property=11" type="action.transaction.UserOrderAction" 
+   			parameter="method" scope="request" validate="false" name="userOrderForm">
+   		</action>  
+  
+  
+  
+    	<action path="/serial-do" input="/service.jsp" type="actions.SerialAction" 
+   			scope="request" validate="true" name="serialForm">
+	    	<forward name="success" path="/service.jsp"/>
+   		</action>  
+   		
+   		
+   		
+  	  	<action path="/add_cart" type="actions.CartAction" />
+   		
+ 	  	<action path="/shop_list" type="actions.ShopListAction" >
+	    	<forward name="success" path="/shop_list.jsp"/>
+   		</action>  
+   		
+  	  	<action path="/shop_detail" type="actions.ShopAction" >
+	    	<forward name="success" path="/shop_detail.jsp"/>
+   		</action> 	
+ 
+ 	  	<action path="/goods_list" type="actions.GoodsListAction" >
+	    	<forward name="success" path="/goods_list.jsp"/>
+   		</action>  
+   		  		
+   		<action path="/goods_detail" type="actions.GoodsAction" >
+	    	<forward name="success" path="/goods_detail.jsp"/>
+   		</action> 
+   		   		
+   		<action path="/index" type="actions.IndexAction" >
+	    	<forward name="success" path="/index.jsp"/>
+   		</action>
+   		 	
+ 	  	<action path="/news_detail" type="actions.NewsAction" >
+	    	<forward name="success" path="/news_detail.jsp"/>
+   		</action>
+   		     		 		
+ 	  	<action path="/news_list" type="actions.NewsListAction" >
+	    	<forward name="success" path="/news_list.jsp"/>
+   		</action> 
+   		
+ 	  	<action path="/usercenter" type="actions.UserCenterAction" >
+	    	<forward name="success" path="/usercenter.jsp"/>
+   		</action>  	    		 		
+   		
+   		<!-- admin begins -->
+ 	  	<action path="/admin/index" type="actions.admin.AdminIndexAction" >
+	    	<forward name="success" path="/admin/index.jsp"/>
+	    	<forward name="fail" path="/admin/login.jsp"/>
+   		</action> 
+   		 	    		 		
+ 	  	<action path="/admin/login-do" input="/admin/login.jsp" type="actions.admin.AdminLoginAction" 
+ 	  		scope="request" validate="true" name="adminLoginForm" >
+	    	<forward name="success" path="/admin/index.jsp"/>
+	    	<forward name="fail" path="/admin/login.jsp"/>
+   		</action> 
+   		   		     		 		
+	  	<action path="/admin/login" type="actions.BaseAction" >
+	    	<forward name="success" path="/admin/login.jsp"/>
+   		</action> 
+    		 	    		 		
+ 	  	<action path="/admin/adminUpdate-do" input="/admin/index.jsp" type="actions.admin.AdminUpdateAction" 
+ 	  		parameter="method" scope="request" validate="false" name="adminUpdateForm" >
+	    	<forward name="updateInfo" path="/admin/person_info.jsp"/>
+	    	<forward name="changePassword" path="/admin/person_edit_pass.jsp"/>
+   		</action>   		 	    		 		
+
+ 	  	<action path="/admin/shopAdd-do" input="/admin/index.jsp" type="actions.admin.ShopManageAction" 
+ 	  		parameter="method" scope="request" validate="false" name="uploadActionForm" >
+	    	<forward name="success" path="/admin/shop_view.jsp"/>
+   		</action>  
+
+ 	  	<action path="/admin/shopDelete-do" input="/admin/index.jsp" type="actions.admin.ShopManageAction" 
+ 	  		parameter="method" scope="request" validate="false" name="deleteShopForm" >
+ 	  		<forward name="success" path="/admin/shop_view.do?method=viewList"/>
+   		</action>  
+   		
+  	  	<action path="/admin/shopUpdateView-do" input="/admin/index.jsp" type="actions.admin.ShopManageAction" 
+ 	  		parameter="method" scope="request" validate="false" name="updateViewShopForm" >
+ 	  		<forward name="success" path="/admin/shop_view.do?method=viewList"/>
+   		</action> 
+   		
+   		<action path="/admin/shopUpdate-do" input="/admin/index.jsp" type="actions.admin.ShopManageAction" 
+ 	  		parameter="method" scope="request" validate="false" name="uploadActionForm" >
+	    	<forward name="success" path="/admin/shop_view.do?method=viewList"/>
+   		</action>  
+   		
+   		<action path="/admin/shop_view" input="/admin/index.jsp" type="actions.admin.ShopManageAction" 
+ 	  		parameter="method">
+	    	<forward name="success" path="/admin/shop_view.jsp"/>
+   		</action> 
+   		
+   		
+<!-- begin:news manage action*************-->
+   		
+   		<action path="/admin/news-update" input="/admin/index.jsp" type="actions.admin.NewsManageAction" 
+ 	  		parameter="method" scope="request" validate="false" name="updateAdminNewsForm">
+	    	<forward name="success" path="/admin/success.jsp"/>
+   		</action>
+
+   		<action path="/admin/news-select" input="/admin/index.jsp" type="actions.admin.NewsManageAction" 
+ 	  		parameter="method">
+   		</action>
+   		   		
+   		<action path="/admin/news_view" input="/admin/index.jsp" type="actions.admin.NewsManageAction" 
+ 	  		parameter="method">
+	    	<forward name="success" path="/admin/news_view.jsp"/>
+   		</action>
+   		
+<!-- end:news manage action**************-->
+
+<!-- begin: GoodsCategory manage action -->
+   		
+   		<action path="/admin/goodsCategory-update" input="/admin/index.jsp" type="actions.admin.GoodsCategoryManageAction" 
+ 	  		parameter="method" scope="request" validate="false" name="updateAdminGoodsCategoryForm">
+	    	<forward name="success" path="/admin/success.jsp"/>
+   		</action>
+
+   		<action path="/admin/goodsCategory-select" input="/admin/index.jsp" type="actions.admin.GoodsCategoryManageAction" 
+ 	  		parameter="method">
+   		</action>
+   		   		
+   		<action path="/admin/goods_category_view" input="/admin/index.jsp" type="actions.admin.GoodsCategoryManageAction" 
+ 	  		parameter="method">
+	    	<forward name="success" path="/admin/goods_category_view.jsp"/>
+   		</action>
+   		
+<!-- end: GoodsCategory manage action -->
+
+<!-- begin: Goods manage action -->
+   		<action path="/admin/goods-update" input="/admin/index.jsp" type="actions.admin.GoodsManageAction" 
+ 	  		parameter="method" scope="request" validate="false" name="updateAdminGoodsForm">
+	    	<forward name="success" path="/admin/success.jsp"/>
+   		</action>
+
+   		<action path="/admin/goods-select" input="/admin/index.jsp" type="actions.admin.GoodsManageAction" 
+ 	  		parameter="method">
+   		</action>
+   		   		
+   		<action path="/admin/goods_view" input="/admin/index.jsp" type="actions.admin.GoodsManageAction" 
+ 	  		parameter="method">
+	    	<forward name="success" path="/admin/goods_view.jsp"/>
+   		</action>
+<!-- end: Goods manage action -->
+
+<!-- begin: Order manage action -->
+   		<action path="/order-update-view" input="/admin/index.jsp" type="actions.transaction.UserOrderAction" 
+ 	  		parameter="method" scope="request" validate="false" name="updateAdminGoodsForm">
+	    	<forward name="success" path="/admin/success.jsp"/>
+   		</action>
+   		<action path="/order-update" input="/admin/index.jsp" type="actions.transaction.UserOrderAction" 
+ 	  		parameter="method" scope="request" validate="false" name="updateAdminGoodsForm">
+	    	<forward name="success" path="/admin/success.jsp"/>
+   		</action>
+
+   		<action path="/goods-select" input="/admin/index.jsp" type="actions.transaction.UserOrderAction" 
+ 	  		parameter="method">
+   		</action>
+   		   		
+   		<action path="/block/usercenter_order" input="/admin/index.jsp" type="actions.transaction.UserOrderAction" 
+ 	  		parameter="method">
+	    	<forward name="success" path="/block/usercenter_order.jsp"/>
+   		</action>
+<!-- end: Order manage action -->
+
+<!-- begin: user transaction manage action -->	  		  		  	
+
+
+<!-- end: user transaction manage action -->	 
+   		   		   		
+  	  	<action path="/admin/user_manage" input="/admin/index.jsp" type="actions.admin.UserManageAction" 
+ 	  		parameter="method"  scope="request" validate="true" >
+ 	  		<forward name="success" path="/admin/user_manage.jsp"/>
+   		</action> 
+   		
+   		<!-- end with *.do -->
+   		
+   		
+   		<!-- admin ends -->
+   		
+   		<!-- 以下转发控制共享BaseAction -->
+   		<!-- <ation path="/register" type="org.apache.struts.actions.ForwardAction" parameter="/register.jsp" /> -->
+  		
+   		<action path="/register" type="actions.BaseAction" >
+	    	<forward name="success" path="/register.jsp"/>
+   		</action>
+
+	  	<action path="/contact" type="actions.BaseAction" >
+	    	<forward name="success" path="/contact.jsp"/>
+   		</action>
+   		
+ 	  	<action path="/error" type="actions.BaseAction" >
+	    	<forward name="success" path="/error.jsp"/>
+   		</action>  
+   		
+ 	  	<action path="/help" type="actions.BaseAction" >
+	    	<forward name="success" path="/help.jsp"/>
+   		</action>
+   		     		 		
+	  	<action path="/service" type="actions.BaseAction" >
+	    	<forward name="success" path="/service.jsp"/>
+   		</action>  	
+ 	</action-mappings>
+
+	<message-resources parameter="messages.Application_zh_CN"/>	
+  
+</struts-config>
+
+	<!--  
+	<action-mappings>
+	  	<action path="/shop_info" scope="request"
+	  		input="/shop_info.jsp" validate="false"
+	    	type="struts.actions.BigSortAction" 
+	    	name="BigSortActionForm" >
+	    	<forward name="select" path="/shop_info.jsp"/>
+	    	<forward name="fail" path="/error.jsp" />
+   		</action>
+	</action-mappings>
+	-->

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.user.ShopCollection"  table="user_shop_collection" dynamic-insert="true" dynamic-update="true" >
+		<id name="num" column="num" type="int" >
+			<generator class="increment" />
+		</id>
+		<property name="userNum" column="user_num" type="int"/>
+		<property name="time" column="time_" type="timestamp"/>
+		<property name="useable" column="useable" type="boolean"/>
+		<property name="shopNum" column="shop_num" type="int"/>
+	</class>
+
+</hibernate-mapping>
+

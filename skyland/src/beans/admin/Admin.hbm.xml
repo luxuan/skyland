@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.admin.Admin"  table="per_admin" dynamic-insert="true" dynamic-update="true" >
+		<id name="num" column="num" type="int" >
+			<generator class="increment" />
+		</id>
+		<property name="shopNum" column="shop_num" type="int"/>
+		<property name="grade" column="grade" type="int"/>
+		<property name="ID" column="ID" type="string"/>
+		<property name="adminName" column="admin_name" type="string"/>
+		<property name="password" column="password" type="string"/>
+		<property name="email" column="email" type="string"/>
+		<property name="realName" column="real_name" type="string"/>
+		<property name="mobil" column="mobil" type="string"/>
+		<property name="homePhone" column="home_phone" type="string"/>
+		<property name="officePhone" column="office_phone" type="string"/>
+		<property name="lastIp" column="last_ip" type="string"/>
+		<property name="remark" column="remark" type="string"/>
+		<property name="lastLoginTime" column="last_login_time" type="timestamp"/>
+		<property name="registerTime" column="register_time" type="timestamp"/>
+	</class>
+
+</hibernate-mapping>
+

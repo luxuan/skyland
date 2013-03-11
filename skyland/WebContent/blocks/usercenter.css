@@ -1,0 +1,48 @@
+.comment_table{
+	border-top:2px solid #FF6702;
+	}
+.comment_table td{
+	width:33%;
+	}	
+.message_table{
+	border-top:2px solid #FF6702;
+	}
+.message_table td{
+	width:25%;
+	}
+
+.buttom{
+	}
+.choose{
+	height:31px;
+	float:left;
+	background:url(../imgs/images/choose_bg.png);}
+.choose a,a:visited,a:hover,a:active{
+	color:#000;
+	size:14px;
+	text-decoration:none;}
+
+.choose .left{
+	height:31px;
+	width:4px;
+	background:url(../imgs/images/choose_left.png);}
+.choose .right{
+	height:31px;
+	width:4px;
+	background:url(../imgs/images/choose_right.png);}
+.nochoose{
+	height:29px;
+	margin-top:2px;
+	float:left;
+	background:url(../imgs/images/nochoose_bg.png);}
+.nochoose a,a:visited,a:hover,a:active{
+	color:#000;
+	size:14px;}
+.nochoose .left{
+	height:29px;
+	width:4px;
+	background:url(../imgs/images/nochoose_left.png);}
+.nochoose .right{
+	height:29px;
+	width:4px;
+	background:url(../imgs/images/nochoose_right.png);}

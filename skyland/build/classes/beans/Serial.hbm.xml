@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="beans">
+	<class name="Serial"  table="goods_serial" dynamic-insert="true" dynamic-update="true">
+		<id name="serial" column="serial" type="int" >
+			<generator class="native" />
+		</id>
+		<property name="goodsNum" column="goods_num" type="int"/>
+		<property name="isSold" column="is_sold" type="boolean"/>
+
+	</class>
+ 
+</hibernate-mapping>
+

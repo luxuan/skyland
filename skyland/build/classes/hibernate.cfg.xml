@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+
+        <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1459;databaseName=skyland;</property>
+
+        <property name="hibernate.connection.username">lius</property>
+
+        <property name="hibernate.connection.password">lius123</property>
+
+        <property name="hibernate.connection.pool_size">100</property>
+
+       	<property name="show_sql">true</property>
+       	
+        <property name="dialect"> org.hibernate.dialect.SQLServerDialect</property>
+
+        <!-- Mapping files -->
+        <mapping resource="beans/Category.hbm.xml"/>
+        <mapping resource="beans/Shop.hbm.xml"/>
+        <mapping resource="beans/NewsCategory.hbm.xml"/>
+        <mapping resource="beans/News.hbm.xml"/>
+		<mapping resource="beans/User.hbm.xml"/>
+		<mapping resource="beans/Goods.hbm.xml"/>
+		<mapping resource="beans/GoodsBrand.hbm.xml"/>
+		<mapping resource="beans/City.hbm.xml"/>
+		<mapping resource="beans/Serial.hbm.xml"/>
+
+		<mapping resource="beans/admin/Admin.hbm.xml"/>
+
+		<mapping resource="beans/transaction/Order.hbm.xml"/>
+		<mapping resource="beans/transaction/OrderAddress.hbm.xml"/>
+		
+		<mapping resource="beans/user/GoodsCart.hbm.xml"/>
+		<mapping resource="beans/user/Advisory.hbm.xml"/>
+		<mapping resource="beans/user/Complain.hbm.xml"/>
+		<mapping resource="beans/user/GoodsCollection.hbm.xml"/>
+		<mapping resource="beans/user/ShopCollection.hbm.xml"/>
+		<mapping resource="beans/user/GoodsComment.hbm.xml"/>
+		<mapping resource="beans/user/ShopComment.hbm.xml"/>
+		<mapping resource="beans/user/Message.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>
+

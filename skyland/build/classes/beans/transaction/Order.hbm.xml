@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.transaction.Order"  table="transaction_order" dynamic-insert="true" dynamic-update="true">
+		<id name="num" column="num" type="int" >
+			<generator class="increment" />
+		</id>
+		<property name="userNum" column="user_num" type="int"/>
+		<property name="addressNum" column="address_num" type="int"/>
+		<property name="goodsNum" column="goods_num" type="int"/>
+		<property name="goodsCount" column="goods_count" type="int"/>
+		<property name="payment" column="payment" type="int"/>		
+		<property name="status" column="status" type="int"/>
+		<property name="price" column="price" type="float"/>
+		<property name="isPay" column="is_pay" type="boolean"/>
+		<property name="orderTime" column="order_time" type="timestamp"/>
+		<property name="shipTime" column="ship_time" type="timestamp"/>
+		<property name="successTime" column="success_time" type="timestamp"/>
+		<property name="userMessage" column="user_message" type="string"/>
+		<property name="shopMessage" column="shop_message" type="string"/>
+
+	</class>
+ 
+</hibernate-mapping>
+

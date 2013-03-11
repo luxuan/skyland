@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="beans">
+	<class name="Shop"  table="shop_detail" dynamic-insert="true" dynamic-update="true">
+		<id name="num" column="num" type="int" >
+			<generator class="increment" />
+		</id>
+
+		<property name="cityNum" column="city_num" type="int"/>
+		<property name="adminNum" column="admin_num" type="int"/>
+		<property name="goodCommentCount" column="good_comment_count" type="int"/>
+		<property name="goodsCount" column="goods_count" type="int"/>
+		<property name="soldCount" column="sold_count" type="int"/>
+	
+		<property name="name" column="name_" type="string"/>
+		<property name="address" column="address" type="string"/>
+		<property name="phone" column="phone" type="string"/>
+		<property name="pic" column="pic" type="string"/>
+		<property name="license" column="license" type="string"/>
+		<property name="qq" column="qq" type="string"/>
+		<property name="email" column="email" type="string"/>
+		<property name="fax" column="fax" type="string"/>
+		<property name="isUsed" column="is_used" type="boolean"/>
+		<property name="detail" column="detail" type="text"/>
+	</class>
+ 
+</hibernate-mapping>
+

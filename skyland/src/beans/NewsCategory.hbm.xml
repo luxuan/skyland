@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="beans">
+	<class name="NewsCategory"  table="news_category" dynamic-insert="true" dynamic-update="true">
+		<id name="num" column="num" type="int" >
+			<generator class="increment" />
+		</id>
+		<property name="name" column="title" type="string"/>
+		<property name="isUsed" column="is_used" type="boolean"/>
+	</class>
+ 
+</hibernate-mapping>
+

@@ -1,0 +1,1 @@
+native2ascii -encoding UTF-8  Application_zh.properties Application_zh_CN.properties

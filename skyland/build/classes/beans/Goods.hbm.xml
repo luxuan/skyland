@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="beans">
+	<class name="Goods"  table="goods_detail" dynamic-insert="true" dynamic-update="true">
+		<id name="num" column="num" type="int" >
+			<generator class="increment" />
+		</id>
+		<property name="brandNum" column="brand_num" type="int"/>
+		<property name="categoryNum" column="category_num" type="int"/>
+		<property name="shopNum" column="shop_num" type="int"/>				
+		<property name="price" column="price" type="float"/>
+		<property name="originalPrice" column="original_price" type="float"/>
+		<property name="soldCount" column="sold_count" type="int"/>
+		<property name="goodCommentCount" column="good_comment_count" type="int"/>
+		<property name="weight" column="weight" type="int"/>
+		<property name="name" column="name_" type="string"/>
+		<property name="colour" column="colour" type="string"/>
+		<property name="pic" column="pic_src" type="string"/>
+		<property name="specification" column="specification" type="string"/>
+		<property name="type" column="type" type="string"/>
+		<property name="company" column="company" type="string"/>
+		<property name="detail" column="detail" type="text"/>
+		<property name="produceTime" column="produce_time" type="string"/>
+		<property name="addTime" column="add_time" type="timestamp"/>
+		<property name="isRecommend" column="is_recommend" type="boolean"/>
+		<property name="isBargain" column="is_bargain" type="boolean"/>
+		<property name="isHot" column="is_hot" type="boolean"/>
+		<property name="isFresh" column="is_fresh" type="boolean"/>
+		<property name="isUsed" column="is_used" type="boolean"/>
+
+	</class>
+ 
+</hibernate-mapping>
+
